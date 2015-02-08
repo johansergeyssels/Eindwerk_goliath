@@ -5,6 +5,7 @@ public class MainGuy : MonoBehaviour
 {
 	public float jumpforce = 0;
 	public float speed = 1f;
+	public float testVariable;
 
 	private bool air = false;
 
