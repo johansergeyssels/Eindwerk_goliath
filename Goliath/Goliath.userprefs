@@ -1,10 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MainGuy.cs">
     <Files>
-      <File FileName="Assets/MainGuy.cs" Line="1" Column="1" />
-      <File FileName="../oefeningen/flappy basic WC3/Assets/Working Assets/Code/Flappy.cs" Line="1" Column="1" />
-      <File FileName="../oefeningen/MarbleRoller/Assets/scripts/Ball.cs" Line="1" Column="1" />
+      <File FileName="Assets/MainGuy.cs" Line="34" Column="2" />
+      <File FileName="Assets/MainGuy.cs" Line="15" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -4,8 +4,8 @@ using System.Collections;
 public class MainGuy : MonoBehaviour
 {
 	public float jumpforce = 0;
-	public float speed = 1f;
-	public float testVariable;
+	public float acc = 1f;
+	public float maxSpeed = 10;
 
 	private bool air = false;
 
@@ -16,13 +16,23 @@ public class MainGuy : MonoBehaviour
 
 	void Update ()
 	{
-		Vector3 moveVector = new Vector3 (Input.GetAxis ("Horizontal") * speed, 0, 0);
-		rigidbody.AddForce (moveVector);
-		if (Input.GetButtonDown ("Jump") && !air) {
-			rigidbody.AddForce(new Vector3(0, jumpforce, 0));
-			air = true;
+		if (!air) {
+			if (Input.GetButtonDown ("Jump")) {
+				rigidbody.AddForce (new Vector3 (0, jumpforce, 0));
+				air = true;
+			}
 		}
-		Debug.Log (rigidbody.velocity);
+	}
+
+	void FixedUpdate() {
+		float horizontal = Input.GetAxisRaw ("Horizontal");
+		float sign = Mathf.Sign (rigidbody.velocity.x);
+		if (!air || sign == -horizontal) {
+			if (Mathf.Abs (rigidbody.velocity.x) < maxSpeed) {
+				Vector3 moveVector = new Vector3 (horizontal * acc, 0, 0);
+				rigidbody.AddForce (moveVector);
+			}
+		}
 	}
 
 	void OnCollisionEnter(Collision col){
