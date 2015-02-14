@@ -7,7 +7,7 @@ public class MainGuy : MonoBehaviour
 	public float acc = 1f;
 	public float maxSpeed = 10;
 
-	private bool air = false;
+	private bool onGround = false;
 
 	void Start ()
 	{
@@ -16,26 +16,47 @@ public class MainGuy : MonoBehaviour
 
 	void Update ()
 	{
-		if (!air) {
+		//handling jump
+		if (onGround) {
 			if (Input.GetButtonDown ("Jump")) {
 				rigidbody.AddForce (new Vector3 (0, jumpforce, 0));
-				air = true;
 			}
 		}
+		//Debug.DrawRay(transform.position, new Vector3(1, 0, 0));
 	}
 
 	void FixedUpdate() {
+		//handling movement
 		float horizontal = Input.GetAxisRaw ("Horizontal");
-		float sign = Mathf.Sign (rigidbody.velocity.x);
-		if (!air || sign == -horizontal) {
+		float sign = Mathf.Sign (rigidbody.velocity.x);		
+		if (onGround) {
 			if (Mathf.Abs (rigidbody.velocity.x) < maxSpeed) {
 				Vector3 moveVector = new Vector3 (horizontal * acc, 0, 0);
 				rigidbody.AddForce (moveVector);
 			}
 		}
+		else if(sign == -horizontal) {
+			Vector3 moveVector = new Vector3 (horizontal * acc, 0, 0);
+			rigidbody.AddForce (moveVector);
+		}
 	}
 
 	void OnCollisionEnter(Collision col){
-		air = false;
+		foreach (ContactPoint contact in col.contacts) {
+			Ray ray = new Ray(contact.point, contact.normal);
+			Debug.Log(ray.direction.y);
+			if(ray.direction.y > 0.5) {
+				onGround = true;
+			}
+		}
+	}
+	
+	void OnCollisionExit(Collision col) {
+		foreach (ContactPoint contact in col.contacts) {
+			Ray ray = new Ray(contact.point, contact.normal);
+			if(ray.direction.y > 0.5) {
+				onGround = false;
+			}
+		}
 	}
 }
