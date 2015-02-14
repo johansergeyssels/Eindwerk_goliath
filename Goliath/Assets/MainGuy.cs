@@ -22,7 +22,6 @@ public class MainGuy : MonoBehaviour
 				rigidbody.AddForce (new Vector3 (0, jumpforce, 0));
 			}
 		}
-		//Debug.DrawRay(transform.position, new Vector3(1, 0, 0));
 	}
 
 	void FixedUpdate() {
@@ -30,7 +29,7 @@ public class MainGuy : MonoBehaviour
 		float horizontal = Input.GetAxisRaw ("Horizontal");
 		float sign = Mathf.Sign (rigidbody.velocity.x);		
 		if (onGround) {
-			if (Mathf.Abs (rigidbody.velocity.x) < maxSpeed) {
+			if (Mathf.Abs (rigidbody.velocity.x) < maxSpeed && horizontal != 0) {
 				Vector3 moveVector = new Vector3 (horizontal * acc, 0, 0);
 				rigidbody.AddForce (moveVector);
 			}
@@ -44,9 +43,9 @@ public class MainGuy : MonoBehaviour
 	void OnCollisionEnter(Collision col){
 		foreach (ContactPoint contact in col.contacts) {
 			Ray ray = new Ray(contact.point, contact.normal);
-			Debug.Log(ray.direction.y);
 			if(ray.direction.y > 0.5) {
 				onGround = true;
+				Debug.Log("on = " + ray.direction.y);
 			}
 		}
 	}
