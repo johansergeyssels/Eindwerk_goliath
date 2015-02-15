@@ -1,9 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/OnCollisionStop3.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MainGuy.cs">
     <Files>
-      <File FileName="Assets/OnCollisionStop3.cs" Line="23" Column="38" />
-      <File FileName="Assets/ShootGrapple.cs" Line="14" Column="58" />
+      <File FileName="Assets/MainGuy.cs" Line="46" Column="39" />
+      <File FileName="Assets/MainGuy.cs" Line="62" Column="2" />
+      <File FileName="../../unity/oefeningen/MarbleRoller/Assets/scripts/Ball.cs" Line="20" Column="3" />
+      <File FileName="../../unity/oefeningen/flappy basic WC3/Assets/Working Assets/Code/Flappy.cs" Line="1" Column="1" />
+      <File FileName="../../unity/oefeningen/flappy basic WC3/Assets/Working Assets/Code/MoveScope.cs" Line="1" Column="1" />
+      <File FileName="../../unity/oefeningen/flappy basic WC3/Assets/Working Assets/Code/Bullet.cs" Line="15" Column="7" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

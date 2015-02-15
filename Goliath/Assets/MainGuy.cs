@@ -8,10 +8,12 @@ public class MainGuy : MonoBehaviour
 	public float maxSpeed = 10;
 
 	private bool onGround = false;
+	private Vector3 s;
+	
 
 	void Start ()
 	{
-
+		
 	}
 
 	void Update ()
@@ -22,12 +24,13 @@ public class MainGuy : MonoBehaviour
 				rigidbody.AddForce (new Vector3 (0, jumpforce, 0));
 			}
 		}
+		detectOnGround();
 	}
 
 	void FixedUpdate() {
 		//handling movement
 		float horizontal = Input.GetAxisRaw ("Horizontal");
-		float sign = Mathf.Sign (rigidbody.velocity.x);		
+		float sign = Mathf.Sign (rigidbody.velocity.x);	
 		if (onGround) {
 			if (Mathf.Abs (rigidbody.velocity.x) < maxSpeed && horizontal != 0) {
 				Vector3 moveVector = new Vector3 (horizontal * acc, 0, 0);
@@ -39,24 +42,23 @@ public class MainGuy : MonoBehaviour
 			rigidbody.AddForce (moveVector);
 		}
 	}
-
-	void OnCollisionEnter(Collision col){
-		foreach (ContactPoint contact in col.contacts) {
-			Ray ray = new Ray(contact.point, contact.normal);
-			Debug.Log("on = " + ray.direction);
-			if(ray.direction.y > 0.5) {
-				onGround = true;
-			}
-		}
-	}
 	
-	void OnCollisionExit(Collision col) {
-		foreach (ContactPoint contact in col.contacts) {
-			Ray ray = new Ray(contact.point, contact.normal);
-			Debug.Log("off = " + ray.direction);
-			if(ray.direction.y > 0.5) {
-				onGround = false;
+	private void detectOnGround() {
+		onGround = false;
+		Vector3 p = transform.position;
+		Vector3 s = transform.localScale;
+		
+		for(int i = 0; i < 3; i++) {
+			float x = p.x + s.x / 2 * (i - 1);
+			float y = p.y;
+			Ray ray = new Ray(new Vector3(x, y, 0), Vector3.down);
+			
+			if(Physics.Raycast(ray, s.y / 2)) {
+				onGround = true;
+				break;
 			}
 		}
+		rigidbody.useGravity = !onGround;
+		Debug.Log(Time.frameCount + " onGround = " + onGround);
 	}
 }
