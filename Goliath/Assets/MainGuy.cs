@@ -43,9 +43,9 @@ public class MainGuy : MonoBehaviour
 	void OnCollisionEnter(Collision col){
 		foreach (ContactPoint contact in col.contacts) {
 			Ray ray = new Ray(contact.point, contact.normal);
+			Debug.Log("on = " + ray.direction);
 			if(ray.direction.y > 0.5) {
 				onGround = true;
-				Debug.Log("on = " + ray.direction.y);
 			}
 		}
 	}
@@ -53,6 +53,7 @@ public class MainGuy : MonoBehaviour
 	void OnCollisionExit(Collision col) {
 		foreach (ContactPoint contact in col.contacts) {
 			Ray ray = new Ray(contact.point, contact.normal);
+			Debug.Log("off = " + ray.direction);
 			if(ray.direction.y > 0.5) {
 				onGround = false;
 			}
