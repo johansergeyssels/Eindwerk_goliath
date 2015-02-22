@@ -9,6 +9,7 @@ public class MainGuy : MonoBehaviour
 
 	private bool onGround = false;
 	private Vector3 s;
+	//private Collider collider;
 	
 
 	void Start ()
@@ -24,7 +25,6 @@ public class MainGuy : MonoBehaviour
 				rigidbody.AddForce (new Vector3 (0, jumpforce, 0));
 			}
 		}
-		detectOnGround();
 	}
 
 	void FixedUpdate() {
@@ -32,7 +32,10 @@ public class MainGuy : MonoBehaviour
 		float horizontal = Input.GetAxisRaw ("Horizontal");
 		float sign = Mathf.Sign (rigidbody.velocity.x);	
 		if (onGround) {
-			if (Mathf.Abs (rigidbody.velocity.x) < maxSpeed && horizontal != 0) {
+			if(horizontal == 0) {
+				
+			}
+			else if (Mathf.Abs (rigidbody.velocity.x) < maxSpeed && horizontal != 0) {
 				Vector3 moveVector = new Vector3 (horizontal * acc, 0, 0);
 				rigidbody.AddForce (moveVector);
 			}
@@ -43,22 +46,41 @@ public class MainGuy : MonoBehaviour
 		}
 	}
 	
-	private void detectOnGround() {
+	void OnCollisionEnter(Collision col) {
+		DetectOnGround();
+	}
+	
+	void OnCollisionExit(Collision col) {
+		DetectOnGround();
+	}
+	
+	private void DetectOnGround() {
+		
 		onGround = false;
 		Vector3 p = transform.position;
 		Vector3 s = transform.localScale;
 		
-		for(int i = 0; i < 3; i++) {
-			float x = p.x + s.x / 2 * (i - 1);
+		for(int i = 0; i < 2; i++) {
+			float x = p.x - s.x / 2 + s.x * i;
 			float y = p.y;
 			Ray ray = new Ray(new Vector3(x, y, 0), Vector3.down);
-			
+			//Debug.DrawRay(new Vector3(x, y, 0), Vector3.down * s.y / 2, Color.white, 5);
 			if(Physics.Raycast(ray, s.y / 2)) {
 				onGround = true;
-				break;
 			}
 		}
+		
+		{
+			float x = p.x - s.x / 2;
+			float y = p.y - s.y / 2;
+			Ray ray = new Ray(new Vector3(x + 0.001f, y, 0), Vector3.right * s.x);
+			Debug.DrawRay(new Vector3(x, y, 0), Vector3.right * s.x, Color.white, 5);
+			if(Physics.Raycast(ray, s.x)) {
+				onGround = true;
+			}
+		}
+		Debug.Log(!onGround);
 		rigidbody.useGravity = !onGround;
-		Debug.Log(Time.frameCount + " onGround = " + onGround);
+		//Debug.Log(Time.frameCount + " onGround = " + onGround);
 	}
 }
