@@ -22,6 +22,7 @@ public class MainGuy : MonoBehaviour
 		//handling jump
 		if (onGround) {
 			if (Input.GetButtonDown ("Jump")) {
+				rigidbody.drag = 0;
 				rigidbody.AddForce (new Vector3 (0, jumpforce, 0));
 			}
 		}
@@ -33,16 +34,21 @@ public class MainGuy : MonoBehaviour
 		float sign = Mathf.Sign (rigidbody.velocity.x);	
 		if (onGround) {
 			if(horizontal == 0) {
-				
+				if(rigidbody.drag < 10)
+					rigidbody.drag++;
 			}
 			else if (Mathf.Abs (rigidbody.velocity.x) < maxSpeed && horizontal != 0) {
+				rigidbody.drag = 0;
 				Vector3 moveVector = new Vector3 (horizontal * acc, 0, 0);
 				rigidbody.AddForce (moveVector);
 			}
 		}
-		else if(sign == -horizontal) {
-			Vector3 moveVector = new Vector3 (horizontal * acc, 0, 0);
-			rigidbody.AddForce (moveVector);
+		else {
+			rigidbody.drag = 0;
+			if(sign == -horizontal) {
+				Vector3 moveVector = new Vector3 (horizontal * acc, 0, 0);
+				rigidbody.AddForce (moveVector);
+			}
 		}
 	}
 	
