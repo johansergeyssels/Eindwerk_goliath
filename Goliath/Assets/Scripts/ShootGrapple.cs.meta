@@ -2,7 +2,9 @@ fileFormatVersion: 2
 guid: 39e450c5a49de49dab402fe4e3d3b7ab
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - prefabGrapple: {fileID: 400000, guid: 73c99b808a117460b96bad6b0ed358eb, type: 2}
+  - prefab: {fileID: 100000, guid: 73c99b808a117460b96bad6b0ed358eb, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
