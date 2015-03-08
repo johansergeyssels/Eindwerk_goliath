@@ -1,14 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../Terraformed/Assets/Scripts/Planet/Planet.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/PlayerPhysics.cs">
     <Files>
-      <File FileName="../../Terraformed/Assets/Houdini Script Access/Scripts/ExampleScript.cs" Line="105" Column="3" />
-      <File FileName="../../Terraformed/Assets/Scripts/camera/CameraMovement.cs" Line="6" Column="26" />
-      <File FileName="../../Terraformed/Assets/Scripts/Units/GravityBody.cs" Line="8" Column="25" />
-      <File FileName="../../Terraformed/Assets/Scripts/Test/TestTerraforming.cs" Line="35" Column="1" />
-      <File FileName="../../Terraformed/Assets/Scripts/Units/PlanetDweller.cs" Line="11" Column="26" />
-      <File FileName="../../Terraformed/Assets/Scripts/Units/Selectable.cs" Line="8" Column="20" />
-      <File FileName="../../Terraformed/Assets/Scripts/Planet/Planet.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player/PlayerPhysics.cs" Line="24" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
