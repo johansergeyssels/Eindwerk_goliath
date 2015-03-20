@@ -4,14 +4,11 @@ using System.Collections.Generic;
 
 public class PlayerPhysics : MonoBehaviour {
 	[HideInInspector]
-	public Vector3 movementVector;
-	[HideInInspector]
 	public Player player;
 	[HideInInspector]
 	public bool onGround, onRight, onCeiling, onLeft = false;
 	
 	private Rigidbody rbody;
-	private List<GameObject> colliderGameObjects = new List<GameObject>();
 	private Vector3 groundCheckVector, leftWallCheckVector, rightWallCheckVector, ceilingCheckVector;
 
 	void Awake () {
@@ -33,25 +30,19 @@ public class PlayerPhysics : MonoBehaviour {
 		onRight = CheckOnCollision(rightWallCheckVector);
 		onCeiling = CheckOnCollision(ceilingCheckVector);
 		
-		if(onLeft) {
-			Debug.Log("left " + Time.frameCount);
-		}
-		
-		if(onRight) {
-			Debug.Log("right " + Time.frameCount);
-		}
 		
 		if(horizontal == 0 && onGround && !jump) {
 			if(rigidbody.drag < 100) {
-				rigidbody.drag++;
+				rbody.drag++;
 			}
 		}
 		else {
-			rigidbody.drag = 0;
+			rbody.drag = 0;
 		}
 		
 		Vector3 moveVector = Vector3.zero;
-		if(Mathf.Abs(rigidbody.velocity.x) < player.maxSpeed) {
+		
+		if(Mathf.Abs(rigidbody.velocity.x) < player.maxSpeed || Mathf.Sign(horizontal) == -Mathf.Sign(rbody.velocity.x)) {
 			moveVector.x = horizontal * player.acc;
 		}
 		
@@ -69,7 +60,7 @@ public class PlayerPhysics : MonoBehaviour {
 			}
 		}
 		
-		rigidbody.AddForce (moveVector);
+		rbody.AddForce (moveVector);
 	}
 	
 	private bool CheckOnCollision(Vector3 v) {
@@ -80,5 +71,12 @@ public class PlayerPhysics : MonoBehaviour {
 				return true;
 		}
 		return false;
+	}
+	
+	public void Pull(Vector3 target, float power) {
+		var pullVector = transform.InverseTransformPoint(target).normalized * power;
+		rbody.drag = 0;
+		rbody.AddForce(pullVector);
+		Debug.DrawRay(transform.position, pullVector, Color.green, 2);
 	}
 }
