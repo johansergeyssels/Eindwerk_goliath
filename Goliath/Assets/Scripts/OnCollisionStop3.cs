@@ -7,12 +7,12 @@ public class OnCollisionStop3 : MonoBehaviour
 	void OnCollisionEnter (Collision collision)
 	{
 
-		rigidbody.isKinematic = true;
+		GetComponent<Rigidbody>().isKinematic = true;
 		GameObject bob = GameObject.Find ("MainGuy");
 		Vector3 endPosition = GameObject.Find ("MainGuy/GunStart").GetComponent<ShootGrapple> ().test.transform.position;
 
 		bob.transform.LookAt (endPosition);
-		bob.rigidbody.AddForce(bob.transform.forward * 500);
+		bob.GetComponent<Rigidbody>().AddForce(bob.transform.forward * 500);
 		bob.transform.rotation = Quaternion.identity;
 		StartCoroutine(DestroyObj(1.5f));
 	}

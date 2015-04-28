@@ -17,7 +17,7 @@ public class DrawGrappleLine : MonoBehaviour
 		line.SetVertexCount (2);
 		line.material.color = Color.red;
 		//we need to see the line... 
-		line.renderer.enabled = true;
+		line.GetComponent<Renderer>().enabled = true;
 	}
 	
 	// Update is called once per frame

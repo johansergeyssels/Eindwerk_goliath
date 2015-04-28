@@ -32,7 +32,7 @@ public class PlayerPhysics : MonoBehaviour {
 		
 		
 		if(horizontal == 0 && onGround && !jump) {
-			if(rigidbody.drag < 100) {
+			if(GetComponent<Rigidbody>().drag < 100) {
 				rbody.drag++;
 			}
 		}
@@ -42,7 +42,7 @@ public class PlayerPhysics : MonoBehaviour {
 		
 		Vector3 moveVector = Vector3.zero;
 		
-		if(Mathf.Abs(rigidbody.velocity.x) < player.maxSpeed || Mathf.Sign(horizontal) == -Mathf.Sign(rbody.velocity.x)) {
+		if(Mathf.Abs(GetComponent<Rigidbody>().velocity.x) < player.maxSpeed || Mathf.Sign(horizontal) == -Mathf.Sign(rbody.velocity.x)) {
 			moveVector.x = horizontal * player.acc;
 		}
 		

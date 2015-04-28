@@ -20,8 +20,8 @@ public class MainGuy : MonoBehaviour
 		//handling jump
 		if (onGround) {
 			if (Input.GetButtonDown ("Jump")) {
-				rigidbody.drag = 0;
-				rigidbody.AddForce (new Vector3 (0, jumpforce, 0));
+				GetComponent<Rigidbody>().drag = 0;
+				GetComponent<Rigidbody>().AddForce (new Vector3 (0, jumpforce, 0));
 			}
 		}
 	}
@@ -29,23 +29,23 @@ public class MainGuy : MonoBehaviour
 	void FixedUpdate() {
 		//handling movement
 		float horizontal = Input.GetAxisRaw ("Horizontal");
-		float sign = Mathf.Sign (rigidbody.velocity.x);	
+		float sign = Mathf.Sign (GetComponent<Rigidbody>().velocity.x);	
 		if (onGround) {
 			if(horizontal == 0) {
-				if(rigidbody.drag < 10)
-					rigidbody.drag++;
+				if(GetComponent<Rigidbody>().drag < 10)
+					GetComponent<Rigidbody>().drag++;
 			}
-			else if (Mathf.Abs (rigidbody.velocity.x) < maxSpeed && horizontal != 0) {
-				rigidbody.drag = 0;
+			else if (Mathf.Abs (GetComponent<Rigidbody>().velocity.x) < maxSpeed && horizontal != 0) {
+				GetComponent<Rigidbody>().drag = 0;
 				Vector3 moveVector = new Vector3 (horizontal * acc, 0, 0);
-				rigidbody.AddForce (moveVector);
+				GetComponent<Rigidbody>().AddForce (moveVector);
 			}
 		}
 		else {
-			rigidbody.drag = 0;
+			GetComponent<Rigidbody>().drag = 0;
 			if(sign == -horizontal) {
 				Vector3 moveVector = new Vector3 (horizontal * acc, 0, 0);
-				rigidbody.AddForce (moveVector);
+				GetComponent<Rigidbody>().AddForce (moveVector);
 			}
 		}
 	}
@@ -89,7 +89,7 @@ public class MainGuy : MonoBehaviour
 			}
 		}
 		Debug.Log(!onGround);
-		rigidbody.useGravity = !onGround;
+		GetComponent<Rigidbody>().useGravity = !onGround;
 		//Debug.Log(Time.frameCount + " onGround = " + onGround);
 	}
 }

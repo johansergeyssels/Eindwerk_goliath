@@ -21,7 +21,7 @@ public class ShootGrapple : MonoBehaviour
 			test = Instantiate(prefab, transform.position, Quaternion.identity) as GameObject;
 			test.transform.LookAt(position);    
 			Debug.Log(position);    
-			test.rigidbody.AddForce(test.transform.forward * 100);
+			test.GetComponent<Rigidbody>().AddForce(test.transform.forward * 100);
 
 		}
 
