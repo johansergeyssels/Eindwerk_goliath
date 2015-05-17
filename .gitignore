@@ -1,15 +1,9 @@
 .DS_Store
-Library
-Temp
+Goliath/Library
+Goliath/Temp
 *.csproj
 *.pidb
 *.unityproj
 *.sln
 *.userprefs
 *.csproj
-
-*.csproj
-
-*.sln
-
-*.userprefs
