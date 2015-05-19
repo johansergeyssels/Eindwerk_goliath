@@ -15,6 +15,7 @@ labels:
 - Parry
 - Slash
 - Trust
+- Weapon
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
