@@ -12,7 +12,7 @@ public class PlayerPhysics : MonoBehaviour {
 	private Vector3 groundCheckVector, leftWallCheckVector, rightWallCheckVector, ceilingCheckVector;
 
 	void Awake () {
-		rbody = gameObject.AddComponent<Rigidbody>();
+		rbody = GetComponent<Rigidbody>();
 		rbody.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
 		groundCheckVector = Vector3.down * 0.5f; //around the base of the feets
 		leftWallCheckVector = Vector3.left * 0.5f;
@@ -25,10 +25,10 @@ public class PlayerPhysics : MonoBehaviour {
 	}
 	
 	public void Move(float horizontal, bool jump) {
-		onGround = CheckOnCollision(groundCheckVector);
-		onLeft = CheckOnCollision(leftWallCheckVector);
-		onRight = CheckOnCollision(rightWallCheckVector);
-		onCeiling = CheckOnCollision(ceilingCheckVector);
+		onGround = CheckOnCollision(groundCheckVector, 0.1f);
+		onLeft = CheckOnCollision(leftWallCheckVector, 0.3f);
+		onRight = CheckOnCollision(rightWallCheckVector, 0.3f);
+		onCeiling = CheckOnCollision(ceilingCheckVector, 0.3f);
 		
 		
 		if(horizontal == 0 && onGround && !jump) {
@@ -63,8 +63,8 @@ public class PlayerPhysics : MonoBehaviour {
 		rbody.AddForce (moveVector);
 	}
 	
-	private bool CheckOnCollision(Vector3 v) {
-		Collider[] colliders = Physics.OverlapSphere(transform.TransformPoint(v), 0.3f);
+	private bool CheckOnCollision(Vector3 v, float checkradius) {
+		Collider[] colliders = Physics.OverlapSphere(transform.TransformPoint(v), checkradius);
 		for (int i = 0; i < colliders.Length; i++)
 		{
 			if (colliders[i].gameObject != gameObject)
