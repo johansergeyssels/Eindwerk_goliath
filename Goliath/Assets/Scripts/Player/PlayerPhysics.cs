@@ -42,8 +42,18 @@ public class PlayerPhysics : MonoBehaviour {
 		
 		Vector3 moveVector = Vector3.zero;
 		
-		if(Mathf.Abs(GetComponent<Rigidbody>().velocity.x) < player.maxSpeed || Mathf.Sign(horizontal) == -Mathf.Sign(rbody.velocity.x)) {
+		if(Mathf.Abs(rbody.velocity.x) < player.maxSpeed || Mathf.Sign(horizontal) == -Mathf.Sign(rbody.velocity.x)) {
 			moveVector.x = horizontal * player.acc;
+		}
+		else if(Mathf.Abs(rbody.velocity.x) > player.maxSpeed) {
+			float difference = 0;
+			if(rbody.velocity.x < 0) {
+				difference = -player.maxSpeed - rbody.velocity.x;
+			}
+			else {
+				difference = player.maxSpeed - rbody.velocity.x;
+			}
+			moveVector.x = Mathf.Lerp(difference, 0, 0.5f);
 		}
 		
 		if(jump) {
