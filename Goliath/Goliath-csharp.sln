@@ -29,8 +29,10 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-<<<<<<< HEAD
-																																																											GlobalSection(MonoDevelopProperties) = preSolution
+																																																																GlobalSection(MonoDevelopProperties) = preSolution
+=======
+																																																														GlobalSection(MonoDevelopProperties) = preSolution
+>>>>>>> origin/master
 =======
 																																																													GlobalSection(MonoDevelopProperties) = preSolution
 =======
@@ -40,18 +42,6 @@ Global
 																																																																GlobalSection(MonoDevelopProperties) = preSolution
 =======
 <<<<<<< HEAD
-=======
-																																																															GlobalSection(MonoDevelopProperties) = preSolution
-=======
-																																																													GlobalSection(MonoDevelopProperties) = preSolution
-=======
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
-																																																																GlobalSection(MonoDevelopProperties) = preSolution
-=======
-<<<<<<< HEAD
->>>>>>> origin/master
 >>>>>>> Stashed changes
 =======
 <<<<<<< HEAD
@@ -68,7 +58,6 @@ Global
 =======
 <<<<<<< HEAD
 =======
-<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> origin/master
@@ -76,16 +65,6 @@ Global
 =======
 =======
 <<<<<<< HEAD
->>>>>>> origin/master
-=======
-=======
-<<<<<<< HEAD
->>>>>>> origin/master
->>>>>>> origin/master
-=======
-=======
-<<<<<<< HEAD
->>>>>>> origin/master
 >>>>>>> origin/master
 >>>>>>> Stashed changes
 																																																GlobalSection(MonoDevelopProperties) = preSolution
@@ -107,11 +86,16 @@ Global
 >>>>>>> origin/master
 =======
 =======
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
+=======
 =======
 >>>>>>> origin/master
 =======
->>>>>>> origin/master
 =======
+>>>>>>> origin/master
 >>>>>>> origin/master
 >>>>>>> origin/master
 >>>>>>> origin/master
