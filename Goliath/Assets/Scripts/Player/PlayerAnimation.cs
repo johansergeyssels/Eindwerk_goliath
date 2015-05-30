@@ -5,15 +5,15 @@ public class PlayerAnimation : MonoBehaviour {
 	private Animator animator;
 	private Rigidbody rbody;
 	private PlayerPhysics physics;
+	private AttackBehaviour attackbehaviour;
 	private Quaternion rotationY;
-	private bool attack;
 
 	void Awake () {
 		animator = GetComponent<Animator>();
 		rbody = GetComponentInParent<Rigidbody>();
 		physics = GetComponentInParent<PlayerPhysics>();
+		attackbehaviour = GetComponentInParent<AttackBehaviour>();
 		rotationY = Quaternion.Euler(0, 90, 0);
-		attack = false;
 	}
 	
 	void FixedUpdate () {
@@ -28,15 +28,10 @@ public class PlayerAnimation : MonoBehaviour {
 		animator.SetBool("OnLeft", physics.onLeft);
 		animator.SetBool("OnRight", physics.onRight);
 		animator.SetBool("OnCeiling", physics.onCeiling);
-		animator.SetBool("Attack", attack);
-		attack = false;
+		animator.SetBool("Attack", attackbehaviour.isAttacking);
 	}
 	
 	public void SetDirection(float direction) {
 		rotationY = Quaternion.Euler(0, 90 * direction, 0);
-	}
-	
-	public void AnimateAttack() {
-		attack = true;
 	}
 }

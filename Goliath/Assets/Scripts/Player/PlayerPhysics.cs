@@ -9,7 +9,10 @@ public class PlayerPhysics : MonoBehaviour {
 	public bool onGround, onRight, onCeiling, onLeft = false;
 	[HideInInspector]
 	public float direction;
+	[SerializeField]
+	private float disableTime = 0.2f;
 	
+	private float disabletimer = 0;
 	private Rigidbody rbody;
 	private Vector3 groundCheckVector, leftWallCheckVector, rightWallCheckVector, ceilingCheckVector;
 	private PlayerAnimation playeranimation;
@@ -30,9 +33,17 @@ public class PlayerPhysics : MonoBehaviour {
 			direction = Mathf.Sign(velocity);
 			playeranimation.SetDirection(direction);
 		}
+		if(disabletimer > 0) {
+			disabletimer -= Time.fixedDeltaTime;
+		}
+		else {
+			disabletimer = 0;
+		}
 	}
 	
 	public void Move(float horizontal, bool jump) {
+		if(disabletimer > 0) return;
+	
 		onGround = CheckOnCollision(groundCheckVector, 0.1f);
 		onLeft = CheckOnCollision(leftWallCheckVector, 0.3f);
 		onRight = CheckOnCollision(rightWallCheckVector, 0.3f);
@@ -68,6 +79,7 @@ public class PlayerPhysics : MonoBehaviour {
 		
 		//jumping
 		if(jump) {
+			disabletimer = disableTime;
 			if(onGround) {
 				moveVector.y = player.jumpforce;
 			}
