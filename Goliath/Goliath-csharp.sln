@@ -29,7 +29,14 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+<<<<<<< HEAD
 																																																																																					GlobalSection(MonoDevelopProperties) = preSolution
+=======
+																																																																GlobalSection(MonoDevelopProperties) = preSolution
+=======
+																																																														GlobalSection(MonoDevelopProperties) = preSolution
+>>>>>>> origin/master
+>>>>>>> origin/master
 =======
 																																																													GlobalSection(MonoDevelopProperties) = preSolution
 =======
@@ -78,10 +85,21 @@ Global
 <<<<<<< Updated upstream
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/master
 =======
 =======
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
+=======
+=======
+>>>>>>> origin/master
+=======
+=======
+>>>>>>> origin/master
 >>>>>>> origin/master
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -118,6 +136,7 @@ Global
 <<<<<<< HEAD
 >>>>>>> Stashed changes
 <<<<<<< Updated upstream
+<<<<<<< HEAD
 =======
 >>>>>>> Stashed changes
 >>>>>>> origin/master
@@ -127,7 +146,20 @@ Global
 >>>>>>> origin/master
 =======
 =======
+>>>>>>> origin/master
+=======
 >>>>>>> Stashed changes
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
+=======
+=======
+>>>>>>> Stashed changes
+>>>>>>> origin/master
 >>>>>>> origin/master
 >>>>>>> origin/master
 >>>>>>> origin/master

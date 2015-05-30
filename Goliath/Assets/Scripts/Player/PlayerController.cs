@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour {
 	public PlayerPhysics physics;
 	[HideInInspector]
 	public GrapplingGun grapplingGun;
+	[HideInInspector]
+	public AttackBehaviour attackBehaviour;
 
 	private Dictionary<string, bool> buttons;
 	private List<string> keys;
@@ -15,6 +17,7 @@ public class PlayerController : MonoBehaviour {
 		buttons = new Dictionary<string, bool>();
 		buttons.Add("Jump", false);
 		buttons.Add("Grappling gun", false);
+		buttons.Add("Attack", false);
 		
 		keys = new List<string>(buttons.Keys);
 	}
@@ -33,6 +36,9 @@ public class PlayerController : MonoBehaviour {
 		physics.Move(horizontal, buttons["Jump"]);
 		if(buttons["Grappling gun"]) {
 			grapplingGun.UseGrapplingHook();
+		}
+		if(buttons["Attack"]) {
+			attackBehaviour.Attack();
 		}
 		
 		foreach(var key in keys) {
