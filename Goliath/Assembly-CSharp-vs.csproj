@@ -47,11 +47,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Background Animation\BackgroundLayer.cs" />
-     <Compile Include="Assets\Scripts\DrawGrappleLine.cs" />
+     <Compile Include="Assets\Scripts\Background\BackgroundBehaviour.cs" />
      <Compile Include="Assets\Scripts\Enemy\DeadlyBehaviour.cs" />
      <Compile Include="Assets\Scripts\Enemy\Destructable.cs" />
-     <Compile Include="Assets\Scripts\MainGuy.cs" />
-     <Compile Include="Assets\Scripts\OnCollisionStop3.cs" />
      <Compile Include="Assets\Scripts\Player\AttackBehaviour.cs" />
      <Compile Include="Assets\Scripts\Player\DeadBehaviour.cs" />
      <Compile Include="Assets\Scripts\Player\GrapplingGun.cs" />
@@ -59,8 +57,11 @@
      <Compile Include="Assets\Scripts\Player\PlayerAnimation.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerPhysics.cs" />
-     <Compile Include="Assets\Scripts\ShootGrapple.cs" />
-     <Compile Include="Assets\Scripts\noforcesguy.cs" />
+     <Compile Include="Assets\Scripts\Test\DrawGrappleLine.cs" />
+     <Compile Include="Assets\Scripts\Test\MainGuy.cs" />
+     <Compile Include="Assets\Scripts\Test\OnCollisionStop3.cs" />
+     <Compile Include="Assets\Scripts\Test\ShootGrapple.cs" />
+     <Compile Include="Assets\Scripts\Test\noforcesguy.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
