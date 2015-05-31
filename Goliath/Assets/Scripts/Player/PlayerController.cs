@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour {
 	public GrapplingGun grapplingGun;
 	[HideInInspector]
 	public AttackBehaviour attackBehaviour;
+	[HideInInspector]
+	public DeadBehaviour deadbehaviour;
 
 	private Dictionary<string, bool> buttons;
 	private List<string> keys;
@@ -31,6 +33,8 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	void FixedUpdate() { 
+		if(deadbehaviour.isDead) return;
+		
 		float horizontal = Input.GetAxisRaw ("Horizontal");
 		
 		physics.Move(horizontal, buttons["Jump"]);
