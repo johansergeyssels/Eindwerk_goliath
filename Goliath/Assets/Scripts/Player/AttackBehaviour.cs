@@ -10,6 +10,8 @@ public class AttackBehaviour : MonoBehaviour {
 	private float range = 0.5f;
 	[SerializeField]
 	private float attacktime = 0.3f;
+	[SerializeField]
+	private float preattacktime = 0.1f;
 	
 	public PlayerPhysics physics;
 	public bool isAttacking;
@@ -28,18 +30,21 @@ public class AttackBehaviour : MonoBehaviour {
 		else {
 			cooldowntimer = 0;
 		}
+		
 		if(attacktimer > 0) {
 			attacktimer -= Time.fixedDeltaTime;
-			Collider[] colliders = Physics.OverlapSphere(transform.TransformPoint(Vector3.right * physics.direction * range), radius);
-			for (int i = 0; i < colliders.Length; i++)
-			{
-				var go = colliders[i].gameObject;
-				if (go != gameObject) {
-					var destructable = go.GetComponent<Destructable>();
-					if(destructable) {
-						destructable.Destroy();
-					}
-				}	
+			if(attacktimer <= attacktime) {
+				Collider[] colliders = Physics.OverlapSphere(transform.TransformPoint(Vector3.right * physics.direction * range), radius);
+				for (int i = 0; i < colliders.Length; i++)
+				{
+					var go = colliders[i].gameObject;
+					if (go != gameObject) {
+						var destructable = go.GetComponent<Destructable>();
+						if(destructable) {
+							destructable.Destroy();
+						}
+					}	
+				}
 			}
 		}
 		else {
@@ -51,7 +56,7 @@ public class AttackBehaviour : MonoBehaviour {
 	public void Attack ()
 	{
 		if(cooldowntimer == 0) {
-			attacktimer = attacktime;
+			attacktimer = preattacktime + attacktime;
 			cooldowntimer = cooldown;
 			isAttacking = true;
 		}

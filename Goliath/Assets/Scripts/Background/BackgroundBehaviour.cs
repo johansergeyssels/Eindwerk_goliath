@@ -10,6 +10,8 @@ public class BackgroundBehaviour : MonoBehaviour {
 	private float distanceFactor = 1;
 	[SerializeField]
 	private Color color = Color.gray;
+	[SerializeField]
+	private Vector2 offset;
 	
 	private Material material;
 	
@@ -20,6 +22,6 @@ public class BackgroundBehaviour : MonoBehaviour {
 	}
 	
 	void Update() {
-		material.mainTextureOffset = new Vector2(transform.position.x, transform.position.y) * movingfactor;
+		material.mainTextureOffset = new Vector2(transform.position.x, transform.position.y) * movingfactor + offset;
 	}
 }
