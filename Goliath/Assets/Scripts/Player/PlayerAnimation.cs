@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Animator))]
 public class PlayerAnimation : MonoBehaviour {
 	private Animator animator;
 	private Rigidbody rbody;
 	private PlayerPhysics physics;
 	private AttackBehaviour attackbehaviour;
+	private DeadBehaviour deadbehaviour;
 	private Quaternion rotationY;
 
 	void Awake () {
@@ -13,6 +15,7 @@ public class PlayerAnimation : MonoBehaviour {
 		rbody = GetComponentInParent<Rigidbody>();
 		physics = GetComponentInParent<PlayerPhysics>();
 		attackbehaviour = GetComponentInParent<AttackBehaviour>();
+		deadbehaviour = GetComponentInParent<DeadBehaviour>();
 		rotationY = Quaternion.Euler(0, 90, 0);
 	}
 	
@@ -29,6 +32,7 @@ public class PlayerAnimation : MonoBehaviour {
 		animator.SetBool("OnRight", physics.onRight);
 		animator.SetBool("OnCeiling", physics.onCeiling);
 		animator.SetBool("Attack", attackbehaviour.isAttacking);
+		animator.SetBool("IsDead", deadbehaviour.isDead);
 	}
 	
 	public void SetDirection(float direction) {
