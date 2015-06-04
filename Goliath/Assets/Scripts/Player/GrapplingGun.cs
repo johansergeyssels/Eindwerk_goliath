@@ -28,7 +28,7 @@ public class GrapplingGun : MonoBehaviour {
 		lineRenderer = this.gameObject.AddComponent <LineRenderer>();
 		lineRenderer.SetWidth (startWidth, endWidth);
 		lineRenderer.SetVertexCount (2);
-		lineRenderer.material.color = Color.red;
+		lineRenderer.material.color = Color.black;
 	}
 	
 	void Update() {
