@@ -3,13 +3,9 @@ using System.Collections;
 
 public class BackgroundBehaviour : MonoBehaviour {
 	[SerializeField]
-	private Rigidbody playerbody;
-	[SerializeField]
 	private float movingfactor = 0.001f;
 	[SerializeField]
 	private float distanceFactor = 1;
-	[SerializeField]
-	private Color color = Color.gray;
 	[SerializeField]
 	private Vector2 offset;
 	
