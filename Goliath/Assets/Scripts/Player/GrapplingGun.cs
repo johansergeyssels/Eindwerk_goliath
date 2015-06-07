@@ -21,6 +21,7 @@ public class GrapplingGun : MonoBehaviour {
 	private bool cooldown = false;
 	private bool pull = false;
 	private Vector3 target;
+	private PullableBehaviour pullable;
 	
 	private LineRenderer lineRenderer;
 	
@@ -44,7 +45,13 @@ public class GrapplingGun : MonoBehaviour {
 				pulltimer -= Time.fixedDeltaTime;
 			}
 			else {
-				physics.Pull(target, power);
+				if(pullable) {
+					pullable.Pull(transform.position, power);
+					pullable = null;
+				}
+				else {
+					physics.Pull(target, power);
+				}
 				lineRenderer.enabled = false;
 				pull = false;
 			}
@@ -73,6 +80,7 @@ public class GrapplingGun : MonoBehaviour {
 
 				cooldowntimer = cooldownTime;
 				cooldown = true;
+				pullable = hit.collider.GetComponent<PullableBehaviour>();
 			}
 		}
 	}

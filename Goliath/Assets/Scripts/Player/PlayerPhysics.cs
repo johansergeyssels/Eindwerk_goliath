@@ -29,7 +29,7 @@ public class PlayerPhysics : MonoBehaviour {
 	
 	public void FixedUpdate() {
 		var velocity = rbody.velocity.x;
-		if(velocity != 0) {
+		if(Mathf.Abs(velocity) > 0.1f) {
 			direction = Mathf.Sign(velocity);
 			playeranimation.SetDirection(direction);
 		}
