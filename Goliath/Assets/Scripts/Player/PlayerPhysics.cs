@@ -31,6 +31,7 @@ public class PlayerPhysics : MonoBehaviour {
 		var velocity = rbody.velocity.x;
 		if(velocity != 0) {
 			direction = Mathf.Sign(velocity);
+			//Sign is het teken. Als het positief is dan is de waarde 1 en als het negatief is dan is de waarde 0
 			playeranimation.SetDirection(direction);
 		}
 		if(disabletimer > 0) {
@@ -46,6 +47,7 @@ public class PlayerPhysics : MonoBehaviour {
 	
 		onGround = CheckOnCollision(groundCheckVector, 0.1f);
 		onLeft = CheckOnCollision(leftWallCheckVector, 0.3f);
+		//Cirkels opzij groter. 
 		onRight = CheckOnCollision(rightWallCheckVector, 0.3f);
 		onCeiling = CheckOnCollision(ceilingCheckVector, 0.3f);
 		
@@ -101,6 +103,7 @@ public class PlayerPhysics : MonoBehaviour {
 		for (int i = 0; i < colliders.Length; i++)
 		{
 			if (colliders[i].gameObject != gameObject)
+				//anders kan de kubus zelf als collider worden beschouwd.
 				return true;
 		}
 		return false;
@@ -110,6 +113,6 @@ public class PlayerPhysics : MonoBehaviour {
 		var pullVector = transform.InverseTransformPoint(target).normalized * power;
 		rbody.drag = 0;
 		rbody.AddForce(pullVector);
-		Debug.DrawRay(transform.position, pullVector, Color.green, 2);
+		//Debug.DrawRay(transform.position, pullVector, Color.green, 2);
 	}
 }
