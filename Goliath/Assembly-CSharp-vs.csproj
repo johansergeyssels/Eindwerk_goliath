@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Background\BackgroundBehaviour.cs" />
      <Compile Include="Assets\Scripts\Enemy\DeadlyBehaviour.cs" />
      <Compile Include="Assets\Scripts\Enemy\Destructable.cs" />
+     <Compile Include="Assets\Scripts\Enemy\PullableBehaviour.cs" />
      <Compile Include="Assets\Scripts\Menu\Menu.cs" />
      <Compile Include="Assets\Scripts\Player\AttackBehaviour.cs" />
      <Compile Include="Assets\Scripts\Player\DeadBehaviour.cs" />
