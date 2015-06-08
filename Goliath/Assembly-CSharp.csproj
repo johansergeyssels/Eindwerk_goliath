@@ -46,7 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Background Animation\BackgroundLayer.cs" />
+     <Compile Include="Assets\Scripts\Animations\Gate.cs" />
+     <Compile Include="Assets\Scripts\Animations\RockScript.cs" />
      <Compile Include="Assets\Scripts\Background\BackgroundBehaviour.cs" />
      <Compile Include="Assets\Scripts\Enemy\DeadlyBehaviour.cs" />
      <Compile Include="Assets\Scripts\Enemy\Destructable.cs" />

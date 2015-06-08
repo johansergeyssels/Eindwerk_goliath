@@ -25,6 +25,8 @@ public class PlayerAnimation : MonoBehaviour {
 		
 		if(rotationY != transform.localRotation) {
 			transform.localRotation = Quaternion.Slerp(transform.localRotation, rotationY, 0.3f);
+			//De speler effectief draaien met slurp voor vertraging
+			//rotation is Quaternion. Queternion hebben meer voordelen.
 		}
 		
 		animator.SetBool("OnGround", physics.onGround);
@@ -37,5 +39,6 @@ public class PlayerAnimation : MonoBehaviour {
 	
 	public void SetDirection(float direction) {
 		rotationY = Quaternion.Euler(0, 90 * direction, 0);
+		//De speler naar de juiste kant draaien
 	}
 }
