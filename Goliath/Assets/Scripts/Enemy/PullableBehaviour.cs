@@ -7,7 +7,7 @@ public class PullableBehaviour : MonoBehaviour {
 
 	void Awake () {
 		rbody = GetComponent<Rigidbody>();
-		rbody.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+		rbody.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
 	}
 	
 	void Update () {
@@ -18,7 +18,7 @@ public class PullableBehaviour : MonoBehaviour {
 	{
 		var pullVector = transform.InverseTransformPoint(target).normalized * power;
 		rbody.drag = 0;
-		rbody.AddForce(pullVector);
-		Debug.DrawRay(transform.position, pullVector, Color.green, 2);
+		//rbody.AddForce(pullVector);
+		rbody.AddRelativeForce(pullVector);
 	}
 }
