@@ -22,6 +22,19 @@ public class DeadBehaviour : MonoBehaviour {
 				}
 			}
 		}
+		
+		if(Game.current == null) return;
+		
+		if(!isDead) {
+			var pos = transform.position;
+			if(pos.x < Game.current.minX 
+			|| pos.x > Game.current.maxX 
+			|| pos.y < Game.current.minY
+			|| pos.y > Game.current.maxY) {
+				isDead = true;
+				timer = time;
+			}
+		}
 	}
 	
 	void OnCollisionEnter(Collision collision) {

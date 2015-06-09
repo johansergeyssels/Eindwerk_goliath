@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 [RequireComponent(typeof(PlayerController))]
@@ -17,7 +17,6 @@ public class Player : MonoBehaviour {
 	private GrapplingGun grapplingGun;
 	private AttackBehaviour attackbehaviour;
 	private DeadBehaviour deadbehaviour;
-	
 
 	void Awake () {
 		physics = GetComponent<PlayerPhysics>();
@@ -36,5 +35,11 @@ public class Player : MonoBehaviour {
 		grapplingGun.physics = physics;
 		
 		attackbehaviour.physics = physics;
+	}
+	
+	void Start() {
+		if(Game.current == null) return;
+		
+		Game.current.player = this;
 	}
 }

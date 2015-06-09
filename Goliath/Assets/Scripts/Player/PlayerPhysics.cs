@@ -16,6 +16,7 @@ public class PlayerPhysics : MonoBehaviour {
 	private Rigidbody rbody;
 	private Vector3 groundCheckVector, leftWallCheckVector, rightWallCheckVector, ceilingCheckVector;
 	private PlayerAnimation playeranimation;
+	private MovingPlatformBehaviour movingPlatform;
 
 	void Awake () {
 		rbody = GetComponent<Rigidbody>();
@@ -40,16 +41,21 @@ public class PlayerPhysics : MonoBehaviour {
 		else {
 			disabletimer = 0;
 		}
+		
+		if(movingPlatform) {
+			transform.position += movingPlatform.movement;
+		}
 	}
 	
 	public void Move(float horizontal, bool jump) {
 		if(disabletimer > 0) return;
 	
-		onGround = CheckOnCollision(groundCheckVector, 0.1f);
+		movingPlatform = null;
 		onLeft = CheckOnCollision(leftWallCheckVector, 0.3f);
 		//Cirkels opzij groter. 
 		onRight = CheckOnCollision(rightWallCheckVector, 0.3f);
 		onCeiling = CheckOnCollision(ceilingCheckVector, 0.3f);
+		onGround = CheckOnCollision(groundCheckVector, 0.1f);
 		
 		//sets drag when not in air
 		if(horizontal == 0 && onGround && !jump) {
@@ -102,9 +108,11 @@ public class PlayerPhysics : MonoBehaviour {
 		Collider[] colliders = Physics.OverlapSphere(transform.TransformPoint(v), checkradius);
 		for (int i = 0; i < colliders.Length; i++)
 		{
-			if (colliders[i].gameObject != gameObject)
+			if (colliders[i].gameObject != gameObject){
+				movingPlatform = colliders[i].GetComponent<MovingPlatformBehaviour>();
 				//anders kan de kubus zelf als collider worden beschouwd.
 				return true;
+			}
 		}
 		return false;
 	}
@@ -113,6 +121,5 @@ public class PlayerPhysics : MonoBehaviour {
 		var pullVector = transform.InverseTransformPoint(target).normalized * power;
 		rbody.drag = 0;
 		rbody.AddForce(pullVector);
-		//Debug.DrawRay(transform.position, pullVector, Color.green, 2);
 	}
 }
