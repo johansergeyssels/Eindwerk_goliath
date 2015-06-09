@@ -52,6 +52,10 @@
      <Compile Include="Assets\Scripts\Enemy\DeadlyBehaviour.cs" />
      <Compile Include="Assets\Scripts\Enemy\Destructable.cs" />
      <Compile Include="Assets\Scripts\Enemy\PullableBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Game\CameraBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Game\Game.cs" />
+     <Compile Include="Assets\Scripts\Game\MovingPlatformBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Game\RandomPlatformGenerator.cs" />
      <Compile Include="Assets\Scripts\Menu\Menu.cs" />
      <Compile Include="Assets\Scripts\Player\AttackBehaviour.cs" />
      <Compile Include="Assets\Scripts\Player\DeadBehaviour.cs" />
@@ -163,16 +167,16 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderCore-Unity5">
- <HintPath>/Users/DaanTheys/Documents/Eindwerk_goliath/Goliath/Assets/ProCore/Prototype/Classes/ProBuilderCore-Unity5.dll</HintPath>
+ <HintPath>/Users/johan/Documents/Eindwerk_goliath/Goliath/Assets/ProCore/Prototype/Classes/ProBuilderCore-Unity5.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderMeshOps-Unity5">
- <HintPath>/Users/DaanTheys/Documents/Eindwerk_goliath/Goliath/Assets/ProCore/Prototype/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
+ <HintPath>/Users/johan/Documents/Eindwerk_goliath/Goliath/Assets/ProCore/Prototype/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
  </Reference>
  <Reference Include="ProCore">
- <HintPath>/Users/DaanTheys/Documents/Eindwerk_goliath/Goliath/Assets/ProCore/Shared/Code/ProCore.dll</HintPath>
+ <HintPath>/Users/johan/Documents/Eindwerk_goliath/Goliath/Assets/ProCore/Shared/Code/ProCore.dll</HintPath>
  </Reference>
  <Reference Include="pb_Profiler">
- <HintPath>/Users/DaanTheys/Documents/Eindwerk_goliath/Goliath/Assets/ProCore/Shared/pb_Profiler/pb_Profiler.dll</HintPath>
+ <HintPath>/Users/johan/Documents/Eindwerk_goliath/Goliath/Assets/ProCore/Shared/pb_Profiler/pb_Profiler.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
