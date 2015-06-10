@@ -5,6 +5,8 @@ public class CameraBehaviour : MonoBehaviour {
 	private float maxX, minX, maxY, minY;
 	[HideInInspector]
 	public bool left, right, up, down = false;
+	[HideInInspector]
+	public bool followPlayer = true;
 	
 	void Start () {
 		if(Game.current == null) return;
@@ -20,6 +22,8 @@ public class CameraBehaviour : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(Game.current == null) return;
+		
+		if(!followPlayer) return;
 		
 		var movement = transform.position;
 		
