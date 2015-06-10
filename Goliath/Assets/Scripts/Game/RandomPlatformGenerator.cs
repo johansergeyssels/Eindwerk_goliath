@@ -12,6 +12,12 @@ public class RandomPlatformGenerator : MonoBehaviour {
 	private int score = 0;
 	[SerializeField]
 	private Text scoreField;
+	[SerializeField]
+	private Canvas warningSign;
+	[SerializeField]
+	private Canvas warningSign2;
+	[SerializeField]
+	private CameraBehaviour camerabehaviour;
 	
 	public static RandomPlatformGenerator current;
 	private MovingPlatformBehaviour[] platforms;
@@ -47,5 +53,17 @@ public class RandomPlatformGenerator : MonoBehaviour {
 		var i = Random.Range(0, maximumAmount - 1);
 		target.transform.position = platforms[i].transform.position + Vector3.up;
 		target.GetComponent<Rigidbody>().velocity = Vector3.zero;
+	}
+	
+	void FixedUpdate() {
+		var warningpos = new Vector3(100, 100, 0);
+		var warningpos2 = new Vector3(100, 100, 0);
+		if(camerabehaviour.left) warningpos = new Vector3(Game.current.minX + 0.8f, Game.current.player.transform.position.y, -2);
+		if(camerabehaviour.right) warningpos = new Vector3(Game.current.maxX - 0.8f, Game.current.player.transform.position.y, -2);
+		if(camerabehaviour.up) warningpos2 = new Vector3(Game.current.player.transform.position.x, Game.current.maxY - 1.5f, -2);
+		if(camerabehaviour.down) warningpos2 = new Vector3(Game.current.player.transform.position.x, Game.current.minY + 0.5f, -2);
+		
+		warningSign.transform.position = warningpos;
+		warningSign2.transform.position = warningpos2;
 	}
 }

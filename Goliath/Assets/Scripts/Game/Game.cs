@@ -17,8 +17,4 @@ public class Game : MonoBehaviour {
 	void Update () {
 		
 	}
-	
-	public void ReplaceTarget() {
-		
-	}
 }

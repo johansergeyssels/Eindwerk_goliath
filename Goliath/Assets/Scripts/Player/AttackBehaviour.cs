@@ -40,6 +40,7 @@ public class AttackBehaviour : MonoBehaviour {
 					var go = colliders[i].gameObject;
 					if (go != gameObject) {
 						var destructable = go.GetComponent<Destructable>();
+						Debug.Log(destructable);
 						if(destructable) {
 							destructable.Destroy();
 						}

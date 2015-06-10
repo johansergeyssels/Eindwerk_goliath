@@ -10,9 +10,11 @@ public class BackgroundBehaviour : MonoBehaviour {
 	private Vector2 offset;
 	
 	private Material material;
+	private Renderer r;
 	
 	void Awake () {
-		material = GetComponent<Renderer>().material;
+		r = GetComponent<Renderer>();
+		material = r.material;
 		material.mainTextureScale = new Vector2(distanceFactor, distanceFactor);
 		
 	}

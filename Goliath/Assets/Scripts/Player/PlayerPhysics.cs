@@ -16,7 +16,7 @@ public class PlayerPhysics : MonoBehaviour {
 	private Rigidbody rbody;
 	private Vector3 groundCheckVector, leftWallCheckVector, rightWallCheckVector, ceilingCheckVector;
 	private PlayerAnimation playeranimation;
-	private MovingPlatformBehaviour movingPlatform;
+	private MovingPlatformBehaviour moveableGround;
 
 	void Awake () {
 		rbody = GetComponent<Rigidbody>();
@@ -42,15 +42,15 @@ public class PlayerPhysics : MonoBehaviour {
 			disabletimer = 0;
 		}
 		
-		if(movingPlatform) {
-			transform.position += movingPlatform.movement;
+		if(moveableGround) {
+			transform.position += moveableGround.movement;
 		}
 	}
 	
 	public void Move(float horizontal, bool jump) {
 		if(disabletimer > 0) return;
 	
-		movingPlatform = null;
+		moveableGround = null;
 		onLeft = CheckOnCollision(leftWallCheckVector, 0.3f);
 		//Cirkels opzij groter. 
 		onRight = CheckOnCollision(rightWallCheckVector, 0.3f);
@@ -109,7 +109,7 @@ public class PlayerPhysics : MonoBehaviour {
 		for (int i = 0; i < colliders.Length; i++)
 		{
 			if (colliders[i].gameObject != gameObject){
-				movingPlatform = colliders[i].GetComponent<MovingPlatformBehaviour>();
+				moveableGround = colliders[i].GetComponent<MovingPlatformBehaviour>();
 				//anders kan de kubus zelf als collider worden beschouwd.
 				return true;
 			}
