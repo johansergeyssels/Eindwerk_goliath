@@ -1,11 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Game/MovingPlatformBehaviour.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Enemy/Destructable.cs">
     <Files>
       <File FileName="Assets/Scripts/Enemy/PullableBehaviour.cs" Line="18" Column="2" />
-      <File FileName="Assets/Scripts/Game/CameraBehaviour.cs" Line="7" Column="12" />
       <File FileName="Assets/Scripts/Game/Game.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Game/MovingPlatformBehaviour.cs" Line="15" Column="34" />
+      <File FileName="Assets/Scripts/Game/MovingPlatformBehaviour.cs" Line="43" Column="32" />
+      <File FileName="Assets/Scripts/Game/RandomPlatformGenerator.cs" Line="18" Column="68" />
+      <File FileName="Assets/Scripts/Player/PlayerPhysics.cs" Line="123" Column="30" />
+      <File FileName="Assets/Scripts/Game/CameraBehaviour.cs" Line="21" Column="3" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="43" Column="30" />
+      <File FileName="Assets/Scripts/Player/DeadBehaviour.cs" Line="11" Column="3" />
+      <File FileName="Assets/Scripts/Enemy/Destructable.cs" Line="19" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
