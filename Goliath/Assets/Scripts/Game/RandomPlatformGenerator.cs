@@ -13,6 +13,8 @@ public class RandomPlatformGenerator : MonoBehaviour {
 	[SerializeField]
 	private Text scoreField;
 	[SerializeField]
+	private Text highScoreField;
+	[SerializeField]
 	private Canvas warningSign;
 	[SerializeField]
 	private Canvas warningSign2;
@@ -29,12 +31,20 @@ public class RandomPlatformGenerator : MonoBehaviour {
 		set {
 			score = value;
 			scoreField.text = value.ToString();
+			var highscore = PlayerPrefs.GetInt("highscore");
+			if(value > highscore) {
+				PlayerPrefs.SetInt("highscore", value);
+				highscore = value;
+			}
+			highScoreField.text = highscore.ToString();
 		}
 	}
 	
 	void Awake() {
 		current = this;
 		platforms = new MovingPlatformBehaviour[maximumAmount];	
+		var highscore = PlayerPrefs.GetInt("highscore");
+		highScoreField.text = highscore.ToString();
 	}
 	
 	void Start () {
