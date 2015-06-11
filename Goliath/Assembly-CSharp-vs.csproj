@@ -52,10 +52,13 @@
      <Compile Include="Assets\Scripts\Enemy\DeadlyBehaviour.cs" />
      <Compile Include="Assets\Scripts\Enemy\Destructable.cs" />
      <Compile Include="Assets\Scripts\Enemy\PullableBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Enemy\TargetBox.cs" />
      <Compile Include="Assets\Scripts\Game\CameraBehaviour.cs" />
      <Compile Include="Assets\Scripts\Game\Game.cs" />
      <Compile Include="Assets\Scripts\Game\MovingPlatformBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Game\PointerBehaviour.cs" />
      <Compile Include="Assets\Scripts\Game\RandomPlatformGenerator.cs" />
+     <Compile Include="Assets\Scripts\Game\TutorialExit.cs" />
      <Compile Include="Assets\Scripts\Menu\Menu.cs" />
      <Compile Include="Assets\Scripts\Player\AttackBehaviour.cs" />
      <Compile Include="Assets\Scripts\Player\DeadBehaviour.cs" />

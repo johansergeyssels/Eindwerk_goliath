@@ -3,6 +3,10 @@ using System.Collections;
 
 public class CameraBehaviour : MonoBehaviour {
 	private float maxX, minX, maxY, minY;
+	[HideInInspector]
+	public bool left, right, up, down = false;
+	[HideInInspector]
+	public bool followPlayer = true;
 	
 	void Start () {
 		if(Game.current == null) return;
@@ -19,13 +23,20 @@ public class CameraBehaviour : MonoBehaviour {
 	void Update () {
 		if(Game.current == null) return;
 		
+		if(!followPlayer) return;
+		
 		var movement = transform.position;
-		if(maxX > Game.current.player.transform.position.x &&
-		   minX < Game.current.player.transform.position.x) {
+		
+		left = minX > Game.current.player.transform.position.x;
+		right = maxX < Game.current.player.transform.position.x;
+		if(!left && !right) {
 			movement.x = Game.current.player.transform.position.x;
 		}
-		if(maxY > Game.current.player.transform.position.y &&
-		   minY < Game.current.player.transform.position.y) {
+		
+		up = maxY < Game.current.player.transform.position.y;
+		down = minY > Game.current.player.transform.position.y;
+		
+		if(!up && !down) {
 			movement.y = Game.current.player.transform.position.y;  
 		}
 		transform.position = movement;

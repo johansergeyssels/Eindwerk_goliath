@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Destructable : MonoBehaviour {
-	private bool destroyed;
+	protected bool destroyed;
 	// Use this for initialization
 	void Awake () {
 		destroyed = false;
@@ -11,8 +11,12 @@ public class Destructable : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(destroyed) {
-			Destroy(gameObject);
+			HandleDestroy();
 		}
+	}
+	
+	protected virtual void HandleDestroy() {
+		Destroy(gameObject);
 	}
 	
 	public void Destroy() {
